@@ -13,7 +13,11 @@ filesForm.addEventListener('submit', async function (e) {
   formData.append('file', file);
 
   await axios
-    .post(`api/data`, formData)
+    .post(`api/data`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then(response => {
       console.log(response);
     })
